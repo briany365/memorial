@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>패키지와 가격 · MEMORIAL JOURNEY 메모리얼 여정</title>
+<meta name="description" content="메모리얼 여정 네 가지 패키지의 항목별 비교와 가격, 포함되지 않는 항목, 결제와 환불 기준을 모두 공개합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<style>
+/* ═══════════════════════════════════════════
+   MEMORIAL JOURNEY — Design System v2
+   ═══════════════════════════════════════════ */
+:root{
+  --navy:#101F3A;
+  --navy-deep:#0A1526;
+  --navy-soft:#1B3358;
+  --gold:#B08D4F;
+  --gold-lt:#CBAE79;
+  --gold-ink:#7E6231;
+  --linen:#F6F4EF;
+  --linen-dp:#EFEBE3;
+  --paper:#FFFFFF;
+  --ink:#1A1F2B;
+  --sub:#6D6F74;
+  --hair:#DFDBD2;
+  --hair-dk:rgba(255,255,255,.14);
+  --fs:19px;
+  --serif:'Noto Serif KR',serif;
+  --sans:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
+  --lat:'Cormorant Garamond',serif;
+  --pad:clamp(22px,6vw,96px);
+  --max:1280px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  font-family:var(--sans);font-size:var(--fs);line-height:1.85;
+  color:var(--ink);background:var(--paper);font-weight:400;
+  letter-spacing:-.012em;
+  word-break:keep-all;overflow-wrap:break-word;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+::selection{background:rgba(176,141,79,.24)}
+
+/* ── type ── */
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.42;letter-spacing:-.028em;word-break:keep-all;text-wrap:balance}
+.d1{font-size:clamp(2.35rem,5.4vw,4rem);line-height:1.28;font-weight:600}
+.d2{font-size:clamp(1.78rem,3.3vw,2.72rem);line-height:1.38}
+.d3{font-size:clamp(1.24rem,1.9vw,1.58rem);line-height:1.5}
+.lat{font-family:var(--lat);letter-spacing:.04em}
+.label{
+  font-family:var(--sans);font-size:.66rem;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--gold-ink);
+}
+.label--dk{color:var(--gold-lt)}
+.lead{font-size:1.02em;color:var(--sub);line-height:1.9;font-weight:400;max-width:36em}
+.lead--dk{color:rgba(219,226,238,.74)}
+.sm{font-size:.8rem;line-height:1.75;color:var(--sub)}
+.idx{font-family:var(--lat);font-weight:300;color:var(--gold);line-height:.9;font-variant-numeric:lining-nums}
+
+/* ── layout ── */
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.sec{padding:clamp(76px,9.5vw,152px) 0}
+.sec--tight{padding:clamp(58px,7vw,108px) 0}
+.rule{height:1px;background:var(--hair);border:0}
+.head{max-width:820px;margin-bottom:clamp(44px,5.5vw,76px)}
+.head .label{display:block;margin-bottom:20px}
+.head .lead{margin-top:22px}
+
+/* ── header ── */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:100;padding:22px 0;transition:background .5s,padding .5s,box-shadow .5s}
+.hdr.stuck{background:rgba(255,255,255,.965);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--hair);padding:13px 0}
+.hdr.solid{background:var(--navy-deep)}
+.hdr.solid.stuck{background:rgba(10,21,38,.96);box-shadow:0 1px 0 rgba(255,255,255,.12)}
+.hdr-in{display:flex;align-items:center;gap:clamp(14px,3vw,46px)}
+.brand{margin-right:auto;line-height:1.1}
+.brand b{display:block;font-family:var(--lat);font-size:1.18rem;font-weight:600;letter-spacing:.18em;color:#fff;transition:color .45s}
+.brand span{display:block;font-family:var(--serif);font-size:.6rem;letter-spacing:.42em;color:rgba(255,255,255,.55);margin-top:3px;transition:color .45s}
+.hdr.stuck:not(.solid) .brand b{color:var(--navy)}
+.hdr.stuck:not(.solid) .brand span{color:var(--gold-ink)}
+.nav{display:flex;gap:clamp(10px,1.9vw,32px)}
+.nav a{font-size:.8rem;font-weight:500;color:rgba(255,255,255,.82);position:relative;padding:4px 0;transition:color .35s}
+.hdr.stuck:not(.solid) .nav a{color:var(--ink)}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .38s cubic-bezier(.2,.7,.3,1)}
+.nav a:hover::after,.nav a[aria-current]::after{width:100%}
+.nav a[aria-current]{color:var(--gold-lt)}
+.tools{display:flex;align-items:center;gap:12px}
+.fsz{display:flex;border:1px solid rgba(255,255,255,.26);transition:border-color .45s}
+.hdr.stuck:not(.solid) .fsz{border-color:var(--hair)}
+.fsz button{padding:5px 10px;font-size:.7rem;color:rgba(255,255,255,.78);transition:color .35s,background .25s}
+.hdr.stuck:not(.solid) .fsz button{color:var(--sub)}
+.fsz button:hover{background:rgba(176,141,79,.2)}
+.fsz button+button{border-left:1px solid rgba(255,255,255,.2)}
+.hdr.stuck:not(.solid) .fsz button+button{border-left-color:var(--hair)}
+.btn-nav{background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:.78rem;padding:12px 21px;letter-spacing:-.005em;white-space:nowrap;transition:background .3s}
+.btn-nav:hover{background:var(--gold-lt)}
+
+
+/* ── mobile menu ── */
+.burger{display:none;width:44px;height:44px;position:relative;flex:0 0 44px}
+.burger span{position:absolute;left:11px;width:22px;height:1.5px;background:#fff;transition:transform .38s cubic-bezier(.2,.7,.3,1),opacity .25s,background .45s}
+.hdr.stuck:not(.solid) .burger span{background:var(--navy)}
+.burger span:nth-child(1){top:16px}
+.burger span:nth-child(2){top:22px}
+.burger span:nth-child(3){top:28px}
+.burger[aria-expanded="true"] span{background:#fff}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+.mnav{position:fixed;inset:0;z-index:95;background:var(--navy-deep);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .42s cubic-bezier(.2,.7,.3,1),visibility .42s;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:96px var(--pad) 40px;overflow-y:auto}
+.mnav.open{opacity:1;visibility:visible;pointer-events:auto}
+.mnav::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(90% 60% at 84% 12%,rgba(199,163,102,.16) 0%,transparent 62%)}
+.mnav-list{position:relative;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.12)}
+.mnav-list a{display:flex;align-items:baseline;gap:16px;padding:19px 2px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  font-family:var(--serif);font-size:1.32rem;font-weight:500;color:#fff;letter-spacing:-.02em;
+  opacity:0;transform:translateY(14px)}
+.mnav.open .mnav-list a{opacity:1;transform:none;transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.3,1)}
+.mnav.open .mnav-list a:nth-child(1){transition-delay:.08s}
+.mnav.open .mnav-list a:nth-child(2){transition-delay:.14s}
+.mnav.open .mnav-list a:nth-child(3){transition-delay:.2s}
+.mnav.open .mnav-list a:nth-child(4){transition-delay:.26s}
+.mnav.open .mnav-list a:nth-child(5){transition-delay:.32s}
+.mnav.open .mnav-list a:nth-child(6){transition-delay:.38s}
+.mnav-list a em{font-family:var(--lat);font-style:normal;font-size:.72rem;letter-spacing:.24em;
+  color:rgba(203,174,121,.7);text-transform:uppercase}
+.mnav-list a[aria-current]{color:var(--gold-lt)}
+.mnav-cta{position:relative;margin-top:32px}
+.mnav-cta .cta{justify-content:center;width:100%}
+.mnav-foot{position:relative;margin-top:30px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.mnav-foot .tel{font-family:var(--lat);font-size:1.5rem;color:var(--gold-lt);letter-spacing:.05em}
+.mnav-foot .fsz{border-color:rgba(255,255,255,.26)}
+.mnav-foot .fsz button{color:rgba(255,255,255,.8);padding:7px 13px;font-size:.76rem}
+body.menu-open{overflow:hidden}
+
+/* ── buttons ── */
+.cta{display:inline-flex;align-items:center;gap:12px;padding:17px 34px;font-weight:600;font-size:.9rem;transition:all .32s cubic-bezier(.2,.7,.3,1)}
+.cta-g{background:var(--gold);color:var(--navy-deep)}
+.cta-g:hover{background:var(--gold-lt)}
+.cta-o{border:1px solid rgba(255,255,255,.32);color:#fff}
+.cta-o:hover{border-color:var(--gold);color:var(--gold-lt)}
+.cta-d{border:1px solid var(--navy);color:var(--navy)}
+.cta-d:hover{background:var(--navy);color:#fff}
+.link-u{font-size:.84rem;font-weight:600;color:var(--navy);border-bottom:1px solid var(--gold);padding-bottom:3px;transition:color .3s,border-color .3s}
+.link-u:hover{color:var(--gold-ink)}
+
+/* ── ledger (editorial list) ── */
+.ledger{border-top:1px solid var(--hair)}
+.lg-row{
+  display:grid;grid-template-columns:clamp(58px,7vw,110px) minmax(0,1fr);
+  gap:clamp(18px,3.5vw,54px);padding:clamp(26px,3.2vw,44px) 0;
+  border-bottom:1px solid var(--hair);transition:background .45s;
+}
+.lg-row:hover{background:rgba(176,141,79,.045)}
+.lg-row .idx{font-size:clamp(1.6rem,2.6vw,2.3rem)}
+.lg-row h3{margin-bottom:9px}
+.lg-row p{font-size:.9rem;color:var(--sub);line-height:1.85;max-width:44em}
+
+/* ── plates (photo placeholders) ── */
+.plate{position:relative;overflow:hidden;background:var(--linen-dp)}
+.plate:not([data-shot])::after{content:none}
+.plate i{position:absolute;inset:0;opacity:.3;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23g)'/%3E%3C/svg%3E")}
+.plate::after{
+  content:attr(data-shot);position:absolute;left:0;bottom:0;
+  font-family:var(--lat);font-size:.62rem;letter-spacing:.24em;color:rgba(255,255,255,.8);
+  background:rgba(10,21,38,.46);padding:6px 13px;backdrop-filter:blur(4px);
+}
+.pa{background:radial-gradient(88% 78% at 66% 22%,#E7C994 0%,#C09A62 30%,#7A6042 62%,#33291F 100%)}
+.pb{background:radial-gradient(84% 84% at 28% 70%,#EEDCC2 0%,#C2A47C 28%,#6B7787 66%,#25334A 100%)}
+.pc{background:radial-gradient(92% 74% at 52% 20%,#F7E7CC 0%,#D3B084 26%,#8B806A 58%,#2E3A48 100%)}
+.pd{background:radial-gradient(80% 90% at 74% 80%,#E3D3B8 0%,#A99878 32%,#5F6B79 68%,#1E2B3D 100%)}
+.pe{background:radial-gradient(96% 70% at 34% 34%,#F2DFBE 0%,#C6A578 30%,#79705E 64%,#2A3140 100%)}
+
+/* ── quotes ── */
+.pull{
+  font-family:var(--serif);font-size:clamp(1.22rem,2.2vw,1.72rem);line-height:1.66;
+  color:var(--navy);font-weight:400;letter-spacing:-.03em;
+}
+.pull::before{content:"“";color:var(--gold);margin-right:.06em}
+.pull::after{content:"”";color:var(--gold);margin-left:.04em}
+
+/* ── footer ── */
+.ftr{background:var(--navy-deep);color:rgba(206,216,232,.7);padding:clamp(60px,6.5vw,92px) 0 34px;font-size:.84rem}
+.ftr-top{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:clamp(26px,3.4vw,54px);padding-bottom:44px;border-bottom:1px solid var(--hair-dk)}
+.ftr h4{font-family:var(--sans);font-size:.68rem;letter-spacing:.24em;color:var(--gold-lt);margin-bottom:20px;font-weight:600;text-transform:uppercase}
+.ftr ul{list-style:none}
+.ftr li{margin-bottom:10px}
+.ftr a:hover{color:var(--gold-lt)}
+.ftr-brand b{display:block;font-family:var(--lat);font-size:1.3rem;letter-spacing:.18em;color:#fff}
+.ftr-brand em{display:block;font-family:var(--serif);font-style:normal;font-size:.62rem;letter-spacing:.42em;color:var(--gold-lt);margin-top:4px}
+.ftr-tel{display:block;font-family:var(--lat);font-size:1.86rem;color:var(--gold-lt);letter-spacing:.05em;margin:20px 0 4px}
+.ftr-care{margin-top:24px;padding:15px 19px;border:1px solid var(--hair-dk);font-size:.75rem;line-height:1.75;color:rgba(190,202,220,.66)}
+.ftr-care a{color:var(--gold-lt);border-bottom:1px solid rgba(203,174,121,.4)}
+.ftr-bot{padding-top:28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.72rem;color:rgba(170,184,206,.55)}
+
+/* ── floating call ── */
+.call{
+  position:fixed;right:22px;bottom:22px;z-index:90;display:flex;align-items:center;gap:11px;
+  background:var(--gold);color:var(--navy-deep);padding:15px 25px;font-weight:700;font-size:.88rem;
+  transition:background .3s;
+}
+.call:hover{background:var(--gold-lt)}
+.call svg{width:18px;height:18px}
+
+/* ── reveal ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity 1s cubic-bezier(.16,.72,.28,1),transform 1s cubic-bezier(.16,.72,.28,1)}
+.rv.in{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.1s}
+.rv[data-d="2"]{transition-delay:.2s}
+.rv[data-d="3"]{transition-delay:.3s}
+
+/* ── responsive ── */
+@media(max-width:900px){
+  .ftr-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:820px){
+  .nav{display:none}
+  .burger{display:block}
+  .hdr .tools>.fsz{display:none}
+}
+@media(max-width:620px){
+  :root{--fs:18px}
+  .ftr-top{grid-template-columns:1fr}
+  .btn-nav{padding:11px 15px;font-size:.72rem}
+  .mnav-list a{font-size:1.2rem}
+  .call{padding:13px 20px;font-size:.82rem;right:14px;bottom:14px}
+  .lg-row{grid-template-columns:1fr;gap:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+
+
+/* ── page hero ── */
+.phero{position:relative;background:var(--navy-deep);color:#fff;padding:clamp(150px,17vw,220px) 0 clamp(64px,7vw,100px);overflow:hidden}
+.phero-bg{position:absolute;inset:0;background:
+  radial-gradient(100% 80% at 82% 12%,rgba(199,163,102,.2) 0%,transparent 62%),
+  linear-gradient(164deg,#0A1526 0%,#10233F 58%,#0A1729 100%)}
+.phero-in{position:relative;z-index:2}
+.phero .slate{display:flex;align-items:center;gap:15px;margin-bottom:26px;font-family:var(--lat);font-size:.78rem;letter-spacing:.3em;color:rgba(216,197,161,.82)}
+.phero .slate i{display:block;width:clamp(24px,5vw,64px);height:1px;background:rgba(216,197,161,.4)}
+.phero h1{color:#fff;max-width:16em}
+.phero h1 em{font-style:normal;color:var(--gold-lt)}
+
+/* ── anchor bar ── */
+.anchors{background:var(--linen);border-bottom:1px solid var(--hair);position:sticky;top:56px;z-index:60}
+.anchors-in{display:flex;gap:clamp(14px,3vw,40px);overflow-x:auto;padding:15px 0;-ms-overflow-style:none;scrollbar-width:none}
+.anchors-in::-webkit-scrollbar{display:none}
+.anchors a{font-size:.8rem;font-weight:500;color:var(--sub);white-space:nowrap;padding-bottom:3px;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.anchors a:hover{color:var(--navy);border-color:var(--gold)}
+
+/* ── declaration ── */
+.decl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center}
+.decl-fig{border:1px solid var(--hair);padding:clamp(28px,3.2vw,44px)}
+.dfig-row{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--hair)}
+.dfig-row:last-child{border-bottom:0}
+.dfig-row span{font-size:.86rem;color:var(--sub)}
+.dfig-row b{font-family:var(--serif);font-size:1.42rem;color:var(--navy);font-weight:500}
+.dfig-row.hi b{color:var(--gold-ink)}
+.dfig-cap{margin-top:18px;font-size:.76rem;color:var(--sub);line-height:1.75}
+
+/* ── comparison table ── */
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ctbl{min-width:920px;width:100%}
+.ct-head{display:grid;grid-template-columns:1.05fr 1fr 1fr 1.08fr 1fr;position:sticky;top:110px;z-index:50;background:var(--paper);border-bottom:1px solid var(--navy)}
+.ct-h{padding:26px 18px 22px}
+.ct-h.is-pick{background:rgba(176,141,79,.09)}
+.ct-tier{font-family:var(--lat);font-size:.66rem;letter-spacing:.26em;color:var(--gold-ink);text-transform:uppercase;display:block;margin-bottom:8px}
+.ct-h h3{font-size:1.14rem;color:var(--navy);margin-bottom:8px}
+.ct-price{font-family:var(--serif);font-size:1.16rem;color:var(--gold-ink);font-weight:500}
+.ct-flag{display:inline-block;font-size:.62rem;letter-spacing:.14em;color:var(--navy-deep);background:var(--gold);padding:3px 9px;margin-bottom:10px;font-weight:700}
+.ct-row{display:grid;grid-template-columns:1.05fr 1fr 1fr 1.08fr 1fr;border-bottom:1px solid var(--hair)}
+.ct-row:hover{background:rgba(176,141,79,.04)}
+.ct-c{padding:20px 18px;font-size:.86rem;color:var(--ink);line-height:1.72}
+.ct-c.k{font-weight:600;color:var(--navy);font-size:.84rem}
+.ct-c.pick{background:rgba(176,141,79,.07)}
+.ct-c.no{color:#B4B7BC}
+.ct-sec{grid-column:1/-1;padding:26px 18px 12px;font-family:var(--lat);font-size:.72rem;letter-spacing:.26em;
+  color:var(--gold-ink);text-transform:uppercase;border-bottom:1px solid var(--hair);background:var(--linen)}
+.ct-foot{display:grid;grid-template-columns:1.05fr 1fr 1fr 1.08fr 1fr;border-bottom:1px solid var(--hair)}
+.ct-foot .ct-c{padding:24px 18px}
+.mini{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:600;color:var(--navy);border-bottom:1px solid var(--gold);padding-bottom:3px}
+.tbl-hint{margin-top:16px;font-size:.76rem;color:var(--sub)}
+
+/* ── include / exclude ── */
+.inex{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,44px)}
+.inex-col{border-top:2px solid var(--navy);padding-top:24px}
+.inex-col.out{border-top-color:var(--gold)}
+.inex-col h3{font-size:1.08rem;margin-bottom:20px;color:var(--navy)}
+.inex-col ul{list-style:none}
+.inex-col li{font-size:.88rem;color:var(--sub);padding:11px 0 11px 22px;border-bottom:1px dotted var(--hair);position:relative;line-height:1.75}
+.inex-col li::before{content:"";position:absolute;left:0;top:20px;width:9px;height:1px;background:var(--navy)}
+.inex-col.out li::before{background:var(--gold)}
+
+/* ── payment steps ── */
+.pay{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair)}
+.pay div{background:#fff;padding:clamp(26px,2.8vw,36px) clamp(20px,2.2vw,28px)}
+.pay .idx{font-size:1.9rem;display:block;margin-bottom:16px}
+.pay h4{font-size:1rem;color:var(--navy);margin-bottom:8px}
+.pay p{font-size:.84rem;color:var(--sub);line-height:1.78}
+.pay b{display:block;font-family:var(--serif);font-size:1.24rem;color:var(--gold-ink);margin-top:14px;font-weight:500}
+
+/* ── faq ── */
+.faq{border-top:1px solid var(--hair)}
+.faq details{border-bottom:1px solid var(--hair)}
+.faq summary{
+  list-style:none;cursor:pointer;padding:clamp(20px,2.4vw,28px) 44px clamp(20px,2.4vw,28px) 0;
+  font-family:var(--serif);font-size:1.02rem;color:var(--navy);position:relative;
+  letter-spacing:-.026em;transition:color .3s;line-height:1.6;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--gold-ink)}
+.faq summary::after{content:"";position:absolute;right:8px;top:50%;width:11px;height:1px;background:var(--gold);transform:translateY(-50%)}
+.faq summary::before{content:"";position:absolute;right:13px;top:50%;width:1px;height:11px;background:var(--gold);transform:translateY(-50%);transition:opacity .3s,transform .3s}
+.faq details[open] summary::before{opacity:0;transform:translateY(-50%) rotate(90deg)}
+.faq .ans{padding:0 clamp(24px,5vw,90px) clamp(24px,2.6vw,32px) 0;font-size:.9rem;color:var(--sub);line-height:1.95;max-width:52em}
+.faq .ans strong{color:var(--navy);font-weight:600}
+
+/* ── closing ── */
+.cta-band{background:var(--navy);color:#fff;text-align:center}
+.cta-band h2{color:#fff;margin-bottom:18px}
+.cta-band .lead{margin:0 auto 34px}
+
+@media(max-width:960px){
+  .decl,.inex{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .anchors{top:58px}
+  .ct-head{top:116px}
+}
+
+</style>
+</head>
+<body>
+<header class="hdr solid" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="index.html" class="brand" aria-label="메모리얼 여정 홈">
+      <b>MEMORIAL JOURNEY</b><span>메모리얼 여정</span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴"><a href="index.html">홈</a><a href="index.html#journey">여정</a><a href="packages.html" aria-current="page">패키지</a><a href="story.html">이야기</a><a href="index.html#journal">저널</a><a href="index.html#program">프로그램</a></nav>
+    <div class="tools">
+      <div class="fsz" role="group" aria-label="글자 크기 조절">
+        <button type="button" id="fs-down" aria-label="글자 작게">가–</button>
+        <button type="button" id="fs-up" aria-label="글자 크게">가+</button>
+      </div>
+      <a href="#book" class="btn-nav">1:1 상담 예약</a>
+      <button type="button" class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mnav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mnav" id="mnav" aria-label="모바일 메뉴">
+  <nav class="mnav-list"><a href="index.html">홈<em>Home</em></a><a href="index.html#journey">여정<em>Journey</em></a><a href="packages.html" aria-current="page">패키지<em>Packages</em></a><a href="story.html">이야기<em>Stories</em></a><a href="index.html#journal">저널<em>Journal</em></a><a href="index.html#program">프로그램<em>Program</em></a></nav>
+  <div class="mnav-cta"><a href="#book" class="cta cta-g">1:1 프라이빗 상담 예약</a></div>
+  <div class="mnav-foot">
+    <a class="tel" href="tel:025550199">02-555-0199</a>
+    <div class="fsz" role="group" aria-label="글자 크기 조절">
+      <button type="button" id="fs-down-m" aria-label="글자 작게">가–</button>
+      <button type="button" id="fs-up-m" aria-label="글자 크게">가+</button>
+    </div>
+  </div>
+</div>
+
+<section class="phero">
+  <div class="phero-bg" aria-hidden="true"></div>
+  <div class="wrap phero-in">
+    <p class="slate"><i></i>PACKAGES &mdash; 2026</p>
+    <h1 class="d1">가격을 <em>숨기지 않습니다</em></h1>
+    <p class="lead lead--dk" style="margin-top:28px">장례 산업에 대한 불신은 언제나 가격에서 시작됐습니다. 그래서 저희는 포함되는 것과 포함되지 않는 것, 그리고 추가 비용이 생길 수 있는 지점까지 먼저 알려 드립니다.</p>
+  </div>
+</section>
+
+<nav class="anchors" aria-label="페이지 내 이동">
+  <div class="wrap anchors-in">
+    <a href="#why">왜 공개하는가</a>
+    <a href="#compare">패키지 비교</a>
+    <a href="#inex">포함 · 불포함</a>
+    <a href="#pay">결제와 환불</a>
+    <a href="#faq">자주 묻는 질문</a>
+  </div>
+</nav>
+
+<!-- WHY -->
+<section class="sec" id="why">
+  <div class="wrap decl">
+    <div class="rv">
+      <span class="label" style="display:block;margin-bottom:20px">기준</span>
+      <h2 class="d2">같은 돈이지만<br>완전히 다른 시간입니다</h2>
+      <p class="lead" style="margin-top:22px">전통적인 삼일장의 평균 비용은 천삼백만 원대입니다. 이 돈은 세상을 떠난 뒤, 정신없는 사흘 동안, 본인은 알지 못한 채 쓰입니다.</p>
+      <p class="lead">저희 프레스티지 패키지는 그와 비슷한 금액으로, 살아 계실 때 직접 참석하시는 감사의 자리를 만듭니다. 무엇이 더 나은지는 저희가 아니라 고객께서 판단하실 일입니다. 다만 판단하시려면 숫자가 보여야 합니다.</p>
+    </div>
+    <div class="decl-fig rv" data-d="1">
+      <div class="dfig-row"><span>전통 3일장 평균 장례비용</span><b>약 1,380만 원</b></div>
+      <div class="dfig-row"><span>빈소 없는 장례 (직장)</span><b>200~400만 원</b></div>
+      <div class="dfig-row hi"><span>메모리얼 여정 · 프레스티지</span><b>1,500만 원~</b></div>
+      <div class="dfig-row hi"><span>메모리얼 여정 · 시그니처</span><b>3,500만 원~</b></div>
+      <p class="dfig-cap">전통 장례비용은 한국소비자원 조사 기준이며, 지역과 시설에 따라 차이가 있습니다. 저희 금액은 부가세 별도 기준이고, 상담 시 총액 견적서를 서면으로 드립니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="sec" id="compare" style="background:var(--paper);border-top:1px solid var(--hair)">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">비교</span>
+      <h2 class="d2">네 가지 패키지</h2>
+      <p class="lead">항목별로 무엇이 포함되는지 그대로 적었습니다. 표에 없는 것은 포함되지 않습니다.</p>
+    </div>
+    <div class="tbl-scroll rv">
+      <div class="ctbl">
+        <div class="ct-head">
+          <div class="ct-h"></div>
+          <div class="ct-h"><span class="ct-tier">Entry</span><h3>메모리얼 노트</h3><p class="ct-price">300만 원</p></div>
+          <div class="ct-h"><span class="ct-tier">Prestige</span><h3>프레스티지</h3><p class="ct-price">1,500만 원~</p></div>
+          <div class="ct-h is-pick"><span class="ct-flag">가장 많이 선택</span><span class="ct-tier">Signature</span><h3>시그니처</h3><p class="ct-price">3,500만 원~</p></div>
+          <div class="ct-h"><span class="ct-tier">Masterpiece</span><h3>마스터피스</h3><p class="ct-price">8,000만 원~</p></div>
+        </div>
+        <div class="ct-sec">Journey · 여정</div><div class="ct-row"><div class="ct-c k">메모리얼 로드 트립</div><div class="ct-c no">—</div><div class="ct-c no">—</div><div class="ct-c pick">국내 1박 2일<br>사진작가 1인 동행</div><div class="ct-c">해외 또는 럭셔리 국내<br>다큐멘터리 팀 동행</div></div><div class="ct-row"><div class="ct-c k">스피리추얼 케어 동행</div><div class="ct-c no">—</div><div class="ct-c no">—</div><div class="ct-c pick">1회</div><div class="ct-c">전 일정 동행</div></div><div class="ct-sec">Production · 기록</div><div class="ct-row"><div class="ct-c k">인터뷰 영상</div><div class="ct-c">단편 20분<br>스튜디오 1회</div><div class="ct-c">단편 30분<br>스튜디오 1회</div><div class="ct-c pick">로케이션 촬영<br>본편 40분 + 하이라이트</div><div class="ct-c">생애 밀착 다큐<br>영화 포맷 60분 이상</div></div><div class="ct-row"><div class="ct-c k">가족 다큐멘터리</div><div class="ct-c no">—</div><div class="ct-c no">—</div><div class="ct-c pick">포함</div><div class="ct-c">포함</div></div><div class="ct-row"><div class="ct-c k">영상 편지 (손주 · 가족)</div><div class="ct-c no">—</div><div class="ct-c">1편</div><div class="ct-c pick">3편</div><div class="ct-c">제한 없음</div></div><div class="ct-row"><div class="ct-c k">회고록 · 자서전 출판</div><div class="ct-c no">—</div><div class="ct-c no">—</div><div class="ct-c pick">전자책 편집</div><div class="ct-c">인쇄본 100부 제작</div></div><div class="ct-sec">Celebration · 예식</div><div class="ct-row"><div class="ct-c k">예식 공간</div><div class="ct-c no">—</div><div class="ct-c">레스토랑 대관</div><div class="ct-c pick">프라이빗 갤러리<br>또는 호텔 연회장</div><div class="ct-c">5성급 호텔<br>그랜드볼룸</div></div><div class="ct-row"><div class="ct-c k">하객 정원</div><div class="ct-c no">—</div><div class="ct-c">30명</div><div class="ct-c pick">50명</div><div class="ct-c">100명 이상</div></div><div class="ct-row"><div class="ct-c k">음악 · 공연</div><div class="ct-c no">—</div><div class="ct-c">BGM 연출</div><div class="ct-c pick">라이브 연주 1팀</div><div class="ct-c">공연팀 섭외 · 연출</div></div><div class="ct-row"><div class="ct-c k">답례품</div><div class="ct-c no">—</div><div class="ct-c">기본 구성</div><div class="ct-c pick">맞춤 제작</div><div class="ct-c">맞춤 제작 · 프리미엄</div></div><div class="ct-row"><div class="ct-c k">종교별 맞춤 예식</div><div class="ct-c no">—</div><div class="ct-c">가능</div><div class="ct-c pick">가능</div><div class="ct-c">가능</div></div><div class="ct-sec">Consulting · 정리</div><div class="ct-row"><div class="ct-c k">엔딩노트 워크샵</div><div class="ct-c">포함</div><div class="ct-c">포함</div><div class="ct-c pick">포함</div><div class="ct-c">포함</div></div><div class="ct-row"><div class="ct-c k">사전연명의료의향서</div><div class="ct-c">등록 안내</div><div class="ct-c">등록 대행</div><div class="ct-c pick">등록 대행</div><div class="ct-c">등록 대행</div></div><div class="ct-row"><div class="ct-c k">유언장</div><div class="ct-c no">—</div><div class="ct-c">공증 유언 (기본)</div><div class="ct-c pick">공증 유언 + 검토</div><div class="ct-c">공증 유언 + 분쟁 예방 설계</div></div><div class="ct-row"><div class="ct-c k">상속 · 증여 플랜</div><div class="ct-c no">—</div><div class="ct-c no">—</div><div class="ct-c pick">1차 설계</div><div class="ct-c">전담팀 · 신탁 설계</div></div><div class="ct-row"><div class="ct-c k">사후 장례 사전계약</div><div class="ct-c no">—</div><div class="ct-c">상담</div><div class="ct-c pick">연계 가능</div><div class="ct-c">연계 · 전담 관리</div></div><div class="ct-sec">Service · 진행</div><div class="ct-row"><div class="ct-c k">전담 라이프 플래너</div><div class="ct-c no">—</div><div class="ct-c">배정</div><div class="ct-c pick">배정</div><div class="ct-c">전담팀 배정</div></div><div class="ct-row"><div class="ct-c k">평균 진행 기간</div><div class="ct-c">2~4주</div><div class="ct-c">2~3개월</div><div class="ct-c pick">4~6개월</div><div class="ct-c">6~12개월</div></div>
+        <div class="ct-foot">
+          <div class="ct-c k">상담 신청</div>
+          <div class="ct-c"><a href="#book" class="mini">문의하기 &rarr;</a></div>
+          <div class="ct-c"><a href="#book" class="mini">문의하기 &rarr;</a></div>
+          <div class="ct-c pick"><a href="#book" class="mini">문의하기 &rarr;</a></div>
+          <div class="ct-c"><a href="#book" class="mini">문의하기 &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+    <p class="tbl-hint">화면이 좁을 경우 표를 좌우로 밀어서 보실 수 있습니다. 모든 금액은 부가세 별도입니다.</p>
+  </div>
+</section>
+
+<!-- IN / EX -->
+<section class="sec" id="inex" style="background:var(--linen)">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">투명성</span>
+      <h2 class="d2">포함되지 않는 것도<br>먼저 말씀드립니다</h2>
+      <p class="lead">계약한 뒤에 알게 되는 비용이 신뢰를 무너뜨립니다. 추가 비용이 생길 수 있는 지점을 미리 적어 둡니다.</p>
+    </div>
+    <div class="inex rv">
+      <div class="inex-col">
+        <h3>패키지에 포함됩니다</h3>
+        <ul>
+          <li>전담 라이프 플래너의 상담 전 과정 (횟수 제한 없음)</li>
+          <li>기획·연출·현장 진행 인건비 전액</li>
+          <li>촬영과 편집, 최종 영상 파일 원본 전달</li>
+          <li>정원 이내 하객의 식음료 및 답례품</li>
+          <li>공간 대관료 및 기본 장식</li>
+          <li>제휴 법무·세무법인의 1차 자문료</li>
+          <li>초대장 디자인 및 발송</li>
+          <li>예식 당일 사진 촬영 및 보정본 전달</li>
+        </ul>
+      </div>
+      <div class="inex-col out">
+        <h3>별도로 청구됩니다</h3>
+        <ul>
+          <li>하객 정원 초과분의 식대 (1인 기준 사전 안내)</li>
+          <li>해외 여정의 항공료 및 현지 숙박비</li>
+          <li>외부 공연팀·연주자 섭외비 (요청 시)</li>
+          <li>유언 공증의 법원·공증사무소 수수료 (실비)</li>
+          <li>상속·증여 실행 단계의 등기·세무 신고 비용</li>
+          <li>인쇄 자서전의 추가 부수 제작비</li>
+          <li>고객 요청에 따른 재촬영 및 재편집 (1회 무상 이후)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="consent rv" style="margin-top:clamp(28px,3vw,40px);border:1px solid var(--hair);padding:clamp(24px,2.8vw,34px);font-size:.84rem;color:var(--sub);line-height:1.85;background:#fff">
+      <b style="color:var(--navy);display:block;margin-bottom:8px;font-weight:600">약속</b>
+      별도 청구가 필요한 상황이 생기면, 반드시 진행 전에 서면으로 안내드리고 동의를 받은 뒤에 진행합니다. 동의하지 않으신 비용은 어떤 경우에도 청구하지 않습니다.
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="sec" id="pay">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">결제</span>
+      <h2 class="d2">한 번에 다 내지 않으셔도 됩니다</h2>
+      <p class="lead">진행 단계에 맞춰 세 번에 나누어 납부하십니다. 각 단계에서 무엇이 완료되었는지 확인하신 뒤 다음 금액을 납부하시면 됩니다.</p>
+    </div>
+    <div class="pay rv">
+      <div>
+        <span class="idx">01</span>
+        <h4>계약 시</h4>
+        <p>상담이 끝나고 기획 방향과 총액 견적서에 합의한 시점입니다. 이 단계부터 전담 플래너가 배정됩니다.</p>
+        <b>30%</b>
+      </div>
+      <div>
+        <span class="idx">02</span>
+        <h4>기획 착수 시</h4>
+        <p>여정 일정과 촬영 계획, 예식 공간이 확정된 시점입니다. 확정 문서를 받아보신 뒤 납부하십니다.</p>
+        <b>30%</b>
+      </div>
+      <div>
+        <span class="idx">03</span>
+        <h4>예식 한 달 전</h4>
+        <p>초대장 발송과 최종 인원 확정이 끝난 시점입니다. 추가 항목이 있다면 이때 함께 정산합니다.</p>
+        <b>40%</b>
+      </div>
+    </div>
+    <div class="consent rv" style="margin-top:clamp(28px,3vw,40px);border:1px solid var(--hair);padding:clamp(24px,2.8vw,34px);font-size:.84rem;color:var(--sub);line-height:1.85;background:var(--linen)">
+      <b style="color:var(--navy);display:block;margin-bottom:8px;font-weight:600">환불에 대하여</b>
+      건강 상태의 변화 등으로 여정을 중단하시게 되는 경우, 이미 집행된 실비를 제외한 잔액 전액을 환불해 드립니다. 특히 시한부 진단을 받으신 분께는 2~4주 안에 진행하는 별도의 축약 프로토콜을 안내드리며, 이 경우 진행이 어려워지면 전액을 환불합니다. 자세한 환불 기준은 계약서에 명시되며, 계약 전에 전문을 드립니다.
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="background:var(--linen)">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">자주 묻는 질문</span>
+      <h2 class="d2">가장 많이 여쭤보시는 것들</h2>
+    </div>
+    <div class="faq rv">
+      <details>
+        <summary>건강할 때 해도 되는 건가요?</summary>
+        <div class="ans">오히려 건강하실 때가 가장 좋습니다. 여정에는 이동과 촬영, 오랜 대화가 포함되기 때문에 체력이 있으실 때 더 깊고 편안한 기록이 남습니다. 실제로 저희를 찾아오시는 분의 대다수는 특별한 질환이 없는 분들입니다.</div>
+      </details>
+      <details>
+        <summary>가족이 반대하면 어떻게 하나요?</summary>
+        <div class="ans">처음에는 자녀분이 반대하시는 경우가 많습니다. “멀쩡하신데 왜 그런 걸 하시냐”는 반응이 가장 흔합니다. 저희는 이런 경우 <strong>가족 동석 상담</strong>을 먼저 권해 드립니다. 무엇을 하려는 것인지 함께 들으시면 대부분 생각이 달라집니다. 가족 전체의 동의 없이 진행하지 않는 것이 저희 원칙입니다.</div>
+      </details>
+      <details>
+        <summary>종교가 있는데 맞춰 주실 수 있나요?</summary>
+        <div class="ans">기독교는 목회자 집례와 헌화, 찬양 중심으로, 천주교는 위령과 고별식 형식으로, 불교는 독경과 삼귀의례를 중심으로 준비합니다. 종교가 없으신 분께는 음악회나 갤러리 전시 형식을 제안드립니다. 어느 쪽이든 저희가 특정 종교를 권하지는 않습니다.</div>
+      </details>
+      <details>
+        <summary>몸이 불편해도 여정이 가능한가요?</summary>
+        <div class="ans">가능합니다. 로드 트립에 사용하는 차량은 휠체어와 기본 의료 장비를 실을 수 있도록 준비되어 있고, 필요하시면 간호 인력이 동행합니다. 이동이 어려우신 경우 여정을 생략하고 기록과 예식만으로 구성할 수도 있습니다.</div>
+      </details>
+      <details>
+        <summary>전체 기간은 얼마나 걸리나요?</summary>
+        <div class="ans">패키지에 따라 다릅니다. 메모리얼 노트는 2~4주, 프레스티지는 2~3개월, 시그니처는 4~6개월, 마스터피스는 6~12개월이 평균입니다. 다만 급하신 사정이 있으시면 축약해서 진행할 수 있으니 상담 때 말씀해 주십시오.</div>
+      </details>
+      <details>
+        <summary>하객은 몇 명까지 초대할 수 있나요?</summary>
+        <div class="ans">패키지마다 정원이 정해져 있습니다. 정원을 넘기시는 경우 1인당 식대가 추가되며, 금액은 계약 시점에 정확히 안내드립니다. 실제로는 정원보다 적게 초대하시는 분이 더 많습니다.</div>
+      </details>
+      <details>
+        <summary>부의금 대신 회비를 받아도 되나요?</summary>
+        <div class="ans">일본에서는 하객이 회비를 부담하는 문화가 자리 잡았지만, 한국에서는 아직 낯선 방식이라 저희가 먼저 권해 드리지는 않습니다. 원하시는 경우 초대장에 “마음만 받겠습니다”라고 명시하는 방식을 가장 많이 선택하십니다.</div>
+      </details>
+      <details>
+        <summary>영상은 어디까지 제 것인가요?</summary>
+        <div class="ans">촬영된 모든 영상의 원본 파일을 전달해 드리며, 저작재산권은 고객께 있습니다. 저희가 이 영상을 홈페이지나 홍보에 사용하려면 별도의 서면 동의를 받아야 하고, 동의하지 않으셔도 서비스에는 아무 차이가 없습니다.</div>
+      </details>
+      <details>
+        <summary>사후 장례까지 함께 맡길 수 있나요?</summary>
+        <div class="ans">여정을 마치신 뒤 원하시면 빈소 없는 장례나 수목장·해양장 같은 친환경 장례를 사전에 계약하실 수 있습니다. 다만 이는 별도 계약이며, 생전 패키지 계약 시 강권하지 않습니다.</div>
+      </details>
+      <details>
+        <summary>유언장이나 상속 상담만 받을 수도 있나요?</summary>
+        <div class="ans">가능합니다. 다만 저희는 법무법인이나 세무법인이 아니라 이를 연결하고 조율하는 역할입니다. 실제 법률·세무 업무는 제휴 전문가가 직접 수행하며, 그분들의 이름과 이력을 상담 시 밝혀 드립니다.</div>
+      </details>
+      <details>
+        <summary>중간에 그만두면 돈은 어떻게 되나요?</summary>
+        <div class="ans">이미 집행된 실비를 제외한 잔액 전액을 환불해 드립니다. 어떤 항목에 얼마가 집행되었는지 내역서로 드리며, 산정에 이견이 있으시면 조정합니다. 상세 기준은 계약서에 명시되어 있고 계약 전에 전문을 확인하실 수 있습니다.</div>
+      </details>
+      <details>
+        <summary>상담을 받으면 꼭 계약해야 하나요?</summary>
+        <div class="ans">그렇지 않습니다. 첫 상담은 무료이고, 무엇을 하실지 정하지 않으신 상태로 오셔도 됩니다. 이야기를 나눈 뒤 “지금은 아니다” 하고 돌아가시는 분도 많습니다. 저희는 다시 연락드리지 않으며, 원하실 때 다시 찾아오시면 됩니다.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta-band">
+  <div class="wrap">
+    <div class="rv">
+      <span class="label label--dk" style="display:block;margin-bottom:20px">상담</span>
+      <h2 class="d2">숫자를 보셨으니,<br>이제 이야기를 들려주십시오</h2>
+      <p class="lead lead--dk" style="text-align:center">어떤 패키지가 맞을지는 상담에서 함께 정하면 됩니다. 먼저 어떤 마음이신지 듣는 것부터 시작합니다.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="#book" class="cta cta-g">1:1 프라이빗 상담 예약</a>
+        <a href="story.html" class="cta cta-o">실제 이야기 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="ftr" id="book">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <b>MEMORIAL JOURNEY</b><em>메모리얼 여정</em>
+        <a class="ftr-tel" href="tel:025550199">02-555-0199</a>
+        <p style="font-size:.79rem">평일 09:00 – 18:00 · 주말은 예약 상담</p>
+        <div class="ftr-care">마음이 많이 힘드신가요? 언제든 <a href="tel:109">자살예방 상담전화 109</a>로 연락하실 수 있습니다. 24시간 무료로 연결됩니다.</div>
+      </div>
+      <div>
+        <h4>여정</h4>
+        <ul>
+          <li><a href="index.html#journey">메모리얼 로드 트립</a></li>
+          <li><a href="index.html#journey">레거시 프로덕션</a></li>
+          <li><a href="index.html#journey">라이프 셀러브레이션</a></li>
+          <li><a href="index.html#journey">토탈 엔딩 컨설팅</a></li>
+          <li><a href="packages.html">패키지와 가격</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>안내</h4>
+        <ul>
+          <li><a href="story.html">실제 이야기</a></li>
+          <li><a href="index.html#journal">웰다잉 저널</a></li>
+          <li><a href="index.html#program">세미나 신청</a></li>
+          <li><a href="#">파트너 제휴 문의</a></li>
+          <li><a href="#">개인정보처리방침</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <p>주식회사 메모리얼여정 · 대표 ○○○ · 사업자등록번호 000-00-00000 · 통신판매업 신고 제0000-서울○○-0000호</p>
+      <p>&copy; 2026 MEMORIAL JOURNEY</p>
+    </div>
+  </div>
+</footer>
+
+<a class="call" href="tel:025550199" aria-label="전화 상담하기">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+  전화 상담
+</a>
+<script>
+(function(){
+  var hdr=document.getElementById('hdr');
+  var s=function(){hdr.classList.toggle('stuck',window.scrollY>50)};s();
+  window.addEventListener('scroll',s,{passive:true});
+
+  var steps=[17,18,19,20,22],i=2,r=document.documentElement;
+  function ap(){r.style.setProperty('--fs',steps[i]+'px')}
+  function bindFs(a,b){var u=document.getElementById(a),d=document.getElementById(b);
+    if(u)u.addEventListener('click',function(){if(i<steps.length-1){i++;ap()}});
+    if(d)d.addEventListener('click',function(){if(i>0){i--;ap()}})}
+  bindFs('fs-up','fs-down');bindFs('fs-up-m','fs-down-m');
+
+  var bg=document.getElementById('burger'),mn=document.getElementById('mnav');
+  function setMenu(on){if(!bg||!mn)return;
+    mn.classList.toggle('open',on);
+    bg.setAttribute('aria-expanded',on?'true':'false');
+    bg.setAttribute('aria-label',on?'메뉴 닫기':'메뉴 열기');
+    document.body.classList.toggle('menu-open',on)}
+  if(bg)bg.addEventListener('click',function(){setMenu(!mn.classList.contains('open'))});
+  if(mn)mn.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+  window.addEventListener('resize',function(){if(window.innerWidth>820)setMenu(false)});
+
+  var t=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    t.forEach(function(x){io.observe(x)});
+  }else{t.forEach(function(x){x.classList.add('in')})}
+  
+})();
+</script>
+</body>
+</html>

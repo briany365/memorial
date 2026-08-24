@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MEMORIAL JOURNEY · 메모리얼 여정 — 마침표가 아닌, 가장 빛나는 인생의 피날레</title>
+<meta name="description" content="어둡고 슬픈 장례식장 대신, 가장 아름다운 시절에 사랑하는 이들과 웃으며 인사 나누세요. 여행·기록·예식·정리로 완성하는 프리미엄 웰다잉 종합 솔루션.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<style>
+/* ═══════════════════════════════════════════
+   MEMORIAL JOURNEY — Design System v2
+   ═══════════════════════════════════════════ */
+:root{
+  --navy:#101F3A;
+  --navy-deep:#0A1526;
+  --navy-soft:#1B3358;
+  --gold:#B08D4F;
+  --gold-lt:#CBAE79;
+  --gold-ink:#7E6231;
+  --linen:#F6F4EF;
+  --linen-dp:#EFEBE3;
+  --paper:#FFFFFF;
+  --ink:#1A1F2B;
+  --sub:#6D6F74;
+  --hair:#DFDBD2;
+  --hair-dk:rgba(255,255,255,.14);
+  --fs:19px;
+  --serif:'Noto Serif KR',serif;
+  --sans:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
+  --lat:'Cormorant Garamond',serif;
+  --pad:clamp(22px,6vw,96px);
+  --max:1280px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  font-family:var(--sans);font-size:var(--fs);line-height:1.85;
+  color:var(--ink);background:var(--paper);font-weight:400;
+  letter-spacing:-.012em;
+  word-break:keep-all;overflow-wrap:break-word;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+::selection{background:rgba(176,141,79,.24)}
+
+/* ── type ── */
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.42;letter-spacing:-.028em;word-break:keep-all;text-wrap:balance}
+.d1{font-size:clamp(2.35rem,5.4vw,4rem);line-height:1.28;font-weight:600}
+.d2{font-size:clamp(1.78rem,3.3vw,2.72rem);line-height:1.38}
+.d3{font-size:clamp(1.24rem,1.9vw,1.58rem);line-height:1.5}
+.lat{font-family:var(--lat);letter-spacing:.04em}
+.label{
+  font-family:var(--sans);font-size:.66rem;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--gold-ink);
+}
+.label--dk{color:var(--gold-lt)}
+.lead{font-size:1.02em;color:var(--sub);line-height:1.9;font-weight:400;max-width:36em}
+.lead--dk{color:rgba(219,226,238,.74)}
+.sm{font-size:.8rem;line-height:1.75;color:var(--sub)}
+.idx{font-family:var(--lat);font-weight:300;color:var(--gold);line-height:.9;font-variant-numeric:lining-nums}
+
+/* ── layout ── */
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.sec{padding:clamp(76px,9.5vw,152px) 0}
+.sec--tight{padding:clamp(58px,7vw,108px) 0}
+.rule{height:1px;background:var(--hair);border:0}
+.head{max-width:820px;margin-bottom:clamp(44px,5.5vw,76px)}
+.head .label{display:block;margin-bottom:20px}
+.head .lead{margin-top:22px}
+
+/* ── header ── */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:100;padding:22px 0;transition:background .5s,padding .5s,box-shadow .5s}
+.hdr.stuck{background:rgba(255,255,255,.965);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--hair);padding:13px 0}
+.hdr.solid{background:var(--navy-deep)}
+.hdr.solid.stuck{background:rgba(10,21,38,.96);box-shadow:0 1px 0 rgba(255,255,255,.12)}
+.hdr-in{display:flex;align-items:center;gap:clamp(14px,3vw,46px)}
+.brand{margin-right:auto;line-height:1.1}
+.brand b{display:block;font-family:var(--lat);font-size:1.18rem;font-weight:600;letter-spacing:.18em;color:#fff;transition:color .45s}
+.brand span{display:block;font-family:var(--serif);font-size:.6rem;letter-spacing:.42em;color:rgba(255,255,255,.55);margin-top:3px;transition:color .45s}
+.hdr.stuck:not(.solid) .brand b{color:var(--navy)}
+.hdr.stuck:not(.solid) .brand span{color:var(--gold-ink)}
+.nav{display:flex;gap:clamp(10px,1.9vw,32px)}
+.nav a{font-size:.8rem;font-weight:500;color:rgba(255,255,255,.82);position:relative;padding:4px 0;transition:color .35s}
+.hdr.stuck:not(.solid) .nav a{color:var(--ink)}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .38s cubic-bezier(.2,.7,.3,1)}
+.nav a:hover::after,.nav a[aria-current]::after{width:100%}
+.nav a[aria-current]{color:var(--gold-lt)}
+.tools{display:flex;align-items:center;gap:12px}
+.fsz{display:flex;border:1px solid rgba(255,255,255,.26);transition:border-color .45s}
+.hdr.stuck:not(.solid) .fsz{border-color:var(--hair)}
+.fsz button{padding:5px 10px;font-size:.7rem;color:rgba(255,255,255,.78);transition:color .35s,background .25s}
+.hdr.stuck:not(.solid) .fsz button{color:var(--sub)}
+.fsz button:hover{background:rgba(176,141,79,.2)}
+.fsz button+button{border-left:1px solid rgba(255,255,255,.2)}
+.hdr.stuck:not(.solid) .fsz button+button{border-left-color:var(--hair)}
+.btn-nav{background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:.78rem;padding:12px 21px;letter-spacing:-.005em;white-space:nowrap;transition:background .3s}
+.btn-nav:hover{background:var(--gold-lt)}
+
+
+/* ── mobile menu ── */
+.burger{display:none;width:44px;height:44px;position:relative;flex:0 0 44px}
+.burger span{position:absolute;left:11px;width:22px;height:1.5px;background:#fff;transition:transform .38s cubic-bezier(.2,.7,.3,1),opacity .25s,background .45s}
+.hdr.stuck:not(.solid) .burger span{background:var(--navy)}
+.burger span:nth-child(1){top:16px}
+.burger span:nth-child(2){top:22px}
+.burger span:nth-child(3){top:28px}
+.burger[aria-expanded="true"] span{background:#fff}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+.mnav{position:fixed;inset:0;z-index:95;background:var(--navy-deep);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .42s cubic-bezier(.2,.7,.3,1),visibility .42s;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:96px var(--pad) 40px;overflow-y:auto}
+.mnav.open{opacity:1;visibility:visible;pointer-events:auto}
+.mnav::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(90% 60% at 84% 12%,rgba(199,163,102,.16) 0%,transparent 62%)}
+.mnav-list{position:relative;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.12)}
+.mnav-list a{display:flex;align-items:baseline;gap:16px;padding:19px 2px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  font-family:var(--serif);font-size:1.32rem;font-weight:500;color:#fff;letter-spacing:-.02em;
+  opacity:0;transform:translateY(14px)}
+.mnav.open .mnav-list a{opacity:1;transform:none;transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.3,1)}
+.mnav.open .mnav-list a:nth-child(1){transition-delay:.08s}
+.mnav.open .mnav-list a:nth-child(2){transition-delay:.14s}
+.mnav.open .mnav-list a:nth-child(3){transition-delay:.2s}
+.mnav.open .mnav-list a:nth-child(4){transition-delay:.26s}
+.mnav.open .mnav-list a:nth-child(5){transition-delay:.32s}
+.mnav.open .mnav-list a:nth-child(6){transition-delay:.38s}
+.mnav-list a em{font-family:var(--lat);font-style:normal;font-size:.72rem;letter-spacing:.24em;
+  color:rgba(203,174,121,.7);text-transform:uppercase}
+.mnav-list a[aria-current]{color:var(--gold-lt)}
+.mnav-cta{position:relative;margin-top:32px}
+.mnav-cta .cta{justify-content:center;width:100%}
+.mnav-foot{position:relative;margin-top:30px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.mnav-foot .tel{font-family:var(--lat);font-size:1.5rem;color:var(--gold-lt);letter-spacing:.05em}
+.mnav-foot .fsz{border-color:rgba(255,255,255,.26)}
+.mnav-foot .fsz button{color:rgba(255,255,255,.8);padding:7px 13px;font-size:.76rem}
+body.menu-open{overflow:hidden}
+
+/* ── buttons ── */
+.cta{display:inline-flex;align-items:center;gap:12px;padding:17px 34px;font-weight:600;font-size:.9rem;transition:all .32s cubic-bezier(.2,.7,.3,1)}
+.cta-g{background:var(--gold);color:var(--navy-deep)}
+.cta-g:hover{background:var(--gold-lt)}
+.cta-o{border:1px solid rgba(255,255,255,.32);color:#fff}
+.cta-o:hover{border-color:var(--gold);color:var(--gold-lt)}
+.cta-d{border:1px solid var(--navy);color:var(--navy)}
+.cta-d:hover{background:var(--navy);color:#fff}
+.link-u{font-size:.84rem;font-weight:600;color:var(--navy);border-bottom:1px solid var(--gold);padding-bottom:3px;transition:color .3s,border-color .3s}
+.link-u:hover{color:var(--gold-ink)}
+
+/* ── ledger (editorial list) ── */
+.ledger{border-top:1px solid var(--hair)}
+.lg-row{
+  display:grid;grid-template-columns:clamp(58px,7vw,110px) minmax(0,1fr);
+  gap:clamp(18px,3.5vw,54px);padding:clamp(26px,3.2vw,44px) 0;
+  border-bottom:1px solid var(--hair);transition:background .45s;
+}
+.lg-row:hover{background:rgba(176,141,79,.045)}
+.lg-row .idx{font-size:clamp(1.6rem,2.6vw,2.3rem)}
+.lg-row h3{margin-bottom:9px}
+.lg-row p{font-size:.9rem;color:var(--sub);line-height:1.85;max-width:44em}
+
+/* ── plates (photo placeholders) ── */
+.plate{position:relative;overflow:hidden;background:var(--linen-dp)}
+.plate:not([data-shot])::after{content:none}
+.plate i{position:absolute;inset:0;opacity:.3;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23g)'/%3E%3C/svg%3E")}
+.plate::after{
+  content:attr(data-shot);position:absolute;left:0;bottom:0;
+  font-family:var(--lat);font-size:.62rem;letter-spacing:.24em;color:rgba(255,255,255,.8);
+  background:rgba(10,21,38,.46);padding:6px 13px;backdrop-filter:blur(4px);
+}
+.pa{background:radial-gradient(88% 78% at 66% 22%,#E7C994 0%,#C09A62 30%,#7A6042 62%,#33291F 100%)}
+.pb{background:radial-gradient(84% 84% at 28% 70%,#EEDCC2 0%,#C2A47C 28%,#6B7787 66%,#25334A 100%)}
+.pc{background:radial-gradient(92% 74% at 52% 20%,#F7E7CC 0%,#D3B084 26%,#8B806A 58%,#2E3A48 100%)}
+.pd{background:radial-gradient(80% 90% at 74% 80%,#E3D3B8 0%,#A99878 32%,#5F6B79 68%,#1E2B3D 100%)}
+.pe{background:radial-gradient(96% 70% at 34% 34%,#F2DFBE 0%,#C6A578 30%,#79705E 64%,#2A3140 100%)}
+
+/* ── quotes ── */
+.pull{
+  font-family:var(--serif);font-size:clamp(1.22rem,2.2vw,1.72rem);line-height:1.66;
+  color:var(--navy);font-weight:400;letter-spacing:-.03em;
+}
+.pull::before{content:"“";color:var(--gold);margin-right:.06em}
+.pull::after{content:"”";color:var(--gold);margin-left:.04em}
+
+/* ── footer ── */
+.ftr{background:var(--navy-deep);color:rgba(206,216,232,.7);padding:clamp(60px,6.5vw,92px) 0 34px;font-size:.84rem}
+.ftr-top{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:clamp(26px,3.4vw,54px);padding-bottom:44px;border-bottom:1px solid var(--hair-dk)}
+.ftr h4{font-family:var(--sans);font-size:.68rem;letter-spacing:.24em;color:var(--gold-lt);margin-bottom:20px;font-weight:600;text-transform:uppercase}
+.ftr ul{list-style:none}
+.ftr li{margin-bottom:10px}
+.ftr a:hover{color:var(--gold-lt)}
+.ftr-brand b{display:block;font-family:var(--lat);font-size:1.3rem;letter-spacing:.18em;color:#fff}
+.ftr-brand em{display:block;font-family:var(--serif);font-style:normal;font-size:.62rem;letter-spacing:.42em;color:var(--gold-lt);margin-top:4px}
+.ftr-tel{display:block;font-family:var(--lat);font-size:1.86rem;color:var(--gold-lt);letter-spacing:.05em;margin:20px 0 4px}
+.ftr-care{margin-top:24px;padding:15px 19px;border:1px solid var(--hair-dk);font-size:.75rem;line-height:1.75;color:rgba(190,202,220,.66)}
+.ftr-care a{color:var(--gold-lt);border-bottom:1px solid rgba(203,174,121,.4)}
+.ftr-bot{padding-top:28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.72rem;color:rgba(170,184,206,.55)}
+
+/* ── floating call ── */
+.call{
+  position:fixed;right:22px;bottom:22px;z-index:90;display:flex;align-items:center;gap:11px;
+  background:var(--gold);color:var(--navy-deep);padding:15px 25px;font-weight:700;font-size:.88rem;
+  transition:background .3s;
+}
+.call:hover{background:var(--gold-lt)}
+.call svg{width:18px;height:18px}
+
+/* ── reveal ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity 1s cubic-bezier(.16,.72,.28,1),transform 1s cubic-bezier(.16,.72,.28,1)}
+.rv.in{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.1s}
+.rv[data-d="2"]{transition-delay:.2s}
+.rv[data-d="3"]{transition-delay:.3s}
+
+/* ── responsive ── */
+@media(max-width:900px){
+  .ftr-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:820px){
+  .nav{display:none}
+  .burger{display:block}
+  .hdr .tools>.fsz{display:none}
+}
+@media(max-width:620px){
+  :root{--fs:18px}
+  .ftr-top{grid-template-columns:1fr}
+  .btn-nav{padding:11px 15px;font-size:.72rem}
+  .mnav-list a{font-size:1.2rem}
+  .call{padding:13px 20px;font-size:.82rem;right:14px;bottom:14px}
+  .lg-row{grid-template-columns:1fr;gap:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+
+
+/* ── hero ── */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:var(--navy-deep);overflow:hidden;padding:0 0 clamp(44px,6vw,80px)}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(118% 88% at 80% 16%,rgba(199,163,102,.28) 0%,rgba(199,163,102,.07) 38%,transparent 66%),
+  radial-gradient(88% 72% at 8% 94%,rgba(27,51,88,.9) 0%,transparent 62%),
+  linear-gradient(166deg,#0A1526 0%,#10233F 54%,#0A1729 100%)}
+.hero-orb{position:absolute;right:-8vw;top:-12vw;width:56vw;height:56vw;max-width:820px;max-height:820px;border-radius:50%;
+  background:radial-gradient(circle,rgba(216,180,116,.19) 0%,transparent 62%);filter:blur(34px);animation:br 18s ease-in-out infinite}
+@keyframes br{0%,100%{transform:scale(1);opacity:.86}50%{transform:scale(1.08);opacity:1}}
+.hero-grain{position:absolute;inset:0;opacity:.46;mix-blend-mode:overlay;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)' opacity='.34'/%3E%3C/svg%3E")}
+.hero-in{position:relative;z-index:2;width:100%}
+.slate{display:flex;align-items:center;gap:16px;margin-bottom:30px;font-family:var(--lat);font-size:.82rem;letter-spacing:.32em;color:rgba(216,197,161,.8)}
+.slate i{display:block;width:clamp(26px,6vw,78px);height:1px;background:rgba(216,197,161,.4)}
+.hero h1{color:#fff;max-width:15em}
+.hero h1 em{font-style:normal;color:var(--gold-lt);font-weight:400}
+.hero-sub{margin-top:32px;max-width:33em;color:rgba(222,230,242,.82);font-size:1em;line-height:1.9;font-weight:300}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:46px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:clamp(20px,4.5vw,64px);margin-top:clamp(48px,7vw,88px);padding-top:28px;border-top:1px solid rgba(255,255,255,.13)}
+.hero-meta div{color:rgba(206,218,236,.66);font-size:.78rem;max-width:15em}
+.hero-meta b{display:block;font-family:var(--lat);font-size:1.44rem;color:var(--gold-lt);font-weight:500;letter-spacing:.06em;margin-bottom:3px}
+.ld{opacity:0;transform:translateY(18px);animation:ldin 1.15s cubic-bezier(.16,.72,.28,1) forwards}
+.ld:nth-child(2){animation-delay:.12s}.ld:nth-child(3){animation-delay:.24s}
+.ld:nth-child(4){animation-delay:.36s}.ld:nth-child(5){animation-delay:.48s}.ld:nth-child(6){animation-delay:.6s}
+@keyframes ldin{to{opacity:1;transform:none}}
+
+/* ── two-col editorial ── */
+.split{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.5fr);gap:clamp(28px,5vw,88px);align-items:start}
+.split-stick{position:sticky;top:120px}
+
+/* ── shift ledger ── */
+.sh{border-top:1px solid var(--hair)}
+.sh-hd{display:grid;grid-template-columns:clamp(72px,9vw,132px) 1fr 1fr;gap:clamp(14px,2.6vw,40px);padding:18px 0;border-bottom:1px solid var(--hair)}
+.sh-hd span{font-size:.7rem;letter-spacing:.2em;font-weight:600;text-transform:uppercase;color:var(--sub)}
+.sh-hd span:last-child{color:var(--gold-ink)}
+.sh-row{display:grid;grid-template-columns:clamp(72px,9vw,132px) 1fr 1fr;gap:clamp(14px,2.6vw,40px);padding:clamp(18px,2.4vw,30px) 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.sh-k{font-family:var(--lat);font-size:.8rem;letter-spacing:.18em;color:var(--sub);text-transform:uppercase}
+.sh-a{font-size:.92rem;color:#9DA0A6;transition:color .8s}
+.sh-b{font-size:.98rem;color:var(--navy);font-weight:500;font-family:var(--serif)}
+.sh-note{margin-top:clamp(34px,4vw,54px);text-align:center}
+.sh-note p{font-family:var(--serif);font-size:clamp(1.06rem,1.7vw,1.32rem);color:var(--navy);letter-spacing:-.025em}
+
+/* ── journey features ── */
+.jf{border-top:1px solid var(--hair)}
+.jf-item{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(24px,4.5vw,76px);align-items:center;
+  padding:clamp(38px,5vw,74px) 0;border-bottom:1px solid var(--hair)}
+.jf-item:nth-child(even) .jf-txt{order:2}
+.jf-item:nth-child(even) .jf-img{order:1}
+.jf-top{display:flex;align-items:baseline;gap:16px;margin-bottom:16px}
+.jf-top .idx{font-size:clamp(2rem,3.4vw,3rem)}
+.jf-en{font-family:var(--lat);font-size:.76rem;letter-spacing:.24em;color:var(--sub);text-transform:uppercase}
+.jf-txt h3{font-size:clamp(1.3rem,2.1vw,1.72rem);margin-bottom:14px;color:var(--navy)}
+.jf-txt p{font-size:.92rem;color:var(--sub);line-height:1.9;max-width:33em}
+.jf-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tg{font-size:.7rem;letter-spacing:.04em;color:var(--gold-ink);border:1px solid rgba(176,141,79,.36);padding:4px 11px}
+.jf-img{aspect-ratio:4/3}
+
+/* ── credit signature ── */
+.credit{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+.credit::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 76% 40%,rgba(199,163,102,.15) 0%,transparent 64%)}
+.credit-in{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,6vw,96px);align-items:center;padding:clamp(78px,9vw,132px) 0}
+.credit h2{color:#fff;margin-bottom:26px}
+.credit-mark{display:inline-block;margin-top:36px;font-family:var(--lat);letter-spacing:.3em;font-size:.78rem;color:var(--gold-lt);border:1px solid rgba(203,174,121,.36);padding:10px 20px}
+.reel{position:relative;height:clamp(360px,45vw,520px);overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 24%,#000 76%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 24%,#000 76%,transparent)}
+.reel-track{position:absolute;inset:0;animation:roll 42s linear infinite;will-change:transform}
+@keyframes roll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+.reel:hover .reel-track{animation-play-state:paused}
+.ri{text-align:center;padding:16px 0}
+.ri span{display:block;font-family:var(--lat);font-size:.68rem;letter-spacing:.28em;color:rgba(203,174,121,.68);margin-bottom:6px;text-transform:uppercase}
+.ri b{font-family:var(--serif);font-size:1.14rem;font-weight:400;color:rgba(255,255,255,.92);letter-spacing:.01em}
+.ri i{display:block;width:34px;height:1px;background:rgba(255,255,255,.14);margin:10px auto}
+@media(prefers-reduced-motion:reduce){.reel{height:auto;mask-image:none;-webkit-mask-image:none}.reel-track{animation:none;position:static}}
+
+/* ── stories ── */
+.sec-story{background:var(--linen)}
+.lead-story{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(24px,4vw,64px);align-items:center;
+  padding-bottom:clamp(38px,4.5vw,62px);border-bottom:1px solid var(--hair);margin-bottom:clamp(34px,4vw,54px)}
+.lead-story .plate{aspect-ratio:5/4}
+.ls-q{margin-bottom:24px}
+.who{font-size:.85rem;color:var(--sub)}
+.who b{color:var(--ink);font-weight:600}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 26px}
+.sub-stories{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px)}
+.ss{display:grid;grid-template-columns:132px 1fr;gap:20px;align-items:center}
+.ss .plate{aspect-ratio:1;width:132px}
+.ss p{font-family:var(--serif);font-size:1rem;line-height:1.62;color:var(--navy);margin-bottom:10px;letter-spacing:-.028em}
+
+/* ── advisors ── */
+.adv-list{border-top:1px solid var(--hair)}
+.adv{display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;padding:22px 0;border-bottom:1px solid var(--hair)}
+.adv .av{width:56px;height:56px;border-radius:50%;background:linear-gradient(148deg,#1B3358,#101F3A);
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--gold-lt);font-size:1.04rem}
+.adv h4{font-size:.97rem;color:var(--navy)}
+.adv p{font-size:.8rem;color:var(--sub);line-height:1.6}
+.adv .role{font-family:var(--lat);font-size:.72rem;letter-spacing:.2em;color:var(--sub);text-transform:uppercase;white-space:nowrap}
+
+/* ── package preview ── */
+.sec-pkg{background:var(--navy);color:#fff}
+.sec-pkg h2{color:#fff}
+.pkl{border-top:1px solid var(--hair-dk)}
+.pk-row{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,1fr) auto;gap:clamp(16px,3vw,48px);
+  align-items:center;padding:clamp(22px,2.8vw,34px) 0;border-bottom:1px solid var(--hair-dk);transition:background .45s}
+.pk-row:hover{background:rgba(255,255,255,.035)}
+.pk-row.pick{background:rgba(176,141,79,.1)}
+.pk-tier{font-family:var(--lat);font-size:.7rem;letter-spacing:.26em;color:var(--gold-lt);display:block;margin-bottom:6px;text-transform:uppercase}
+.pk-row h3{font-size:1.14rem;color:#fff}
+.pk-row .desc{font-size:.86rem;color:rgba(214,224,240,.72);line-height:1.8}
+.pk-price{font-family:var(--serif);font-size:1.3rem;color:var(--gold-lt);font-weight:400;white-space:nowrap}
+.pk-flag{font-size:.66rem;letter-spacing:.14em;color:var(--navy-deep);background:var(--gold);padding:3px 9px;margin-left:10px;vertical-align:middle;font-weight:700}
+.pk-foot{margin-top:clamp(32px,3.6vw,46px);display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
+.pk-foot p{font-size:.85rem;color:rgba(214,224,240,.74);max-width:44em}
+.pk-foot b{color:var(--gold-lt);font-weight:600}
+
+/* ── journal ── */
+.jn{border-top:1px solid var(--hair)}
+.jn-row{display:grid;grid-template-columns:clamp(92px,11vw,150px) 1fr auto;gap:clamp(16px,3vw,44px);
+  padding:clamp(22px,2.8vw,34px) 0;border-bottom:1px solid var(--hair);align-items:baseline;transition:background .45s}
+.jn-row:hover{background:rgba(176,141,79,.045)}
+.jn-date{font-family:var(--lat);font-size:.82rem;letter-spacing:.14em;color:var(--sub)}
+.jn-row h3{font-size:1.06rem;color:var(--navy);margin-bottom:8px}
+.jn-row p{font-size:.85rem;color:var(--sub);max-width:46em}
+.jn-cat{font-size:.7rem;letter-spacing:.16em;color:var(--gold-ink);text-transform:uppercase;white-space:nowrap}
+
+/* ── magnet ── */
+.magnet{background:var(--linen);border-top:1px solid var(--hair)}
+.mg{display:grid;grid-template-columns:1.14fr .86fr;gap:clamp(30px,5vw,80px);align-items:center}
+.mg-form{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.mg-form input{flex:1;min-width:216px;padding:16px 18px;border:1px solid var(--hair);background:#fff;font-family:var(--sans);font-size:.9rem}
+.mg-form input:focus{border-color:var(--gold);outline:none}
+.mg-form button{background:var(--navy);color:#fff;padding:16px 32px;font-weight:600;font-size:.88rem;transition:background .3s}
+.mg-form button:hover{background:var(--navy-soft)}
+.mg-agree{margin-top:15px;font-size:.75rem;color:var(--sub);display:flex;gap:9px;align-items:flex-start;line-height:1.7}
+.mg-agree input{margin-top:5px;accent-color:var(--gold)}
+.book{aspect-ratio:3/4;max-width:318px;margin:0 auto;background:linear-gradient(156deg,#101F3A 0%,#1B3358 48%,#0C1B31 100%);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:15px;position:relative;
+  box-shadow:0 34px 66px -34px rgba(16,31,58,.6)}
+.book::before{content:"";position:absolute;inset:17px;border:1px solid rgba(203,174,121,.3)}
+.book em{font-family:var(--lat);font-style:normal;letter-spacing:.34em;font-size:.66rem;color:var(--gold-lt)}
+.book strong{font-family:var(--serif);font-size:1.46rem;color:#fff;font-weight:400;letter-spacing:.07em}
+.book i{width:30px;height:1px;background:rgba(203,174,121,.55)}
+.book small{font-family:var(--lat);font-size:.7rem;color:rgba(206,218,236,.6);letter-spacing:.2em}
+
+@media(max-width:960px){
+  .split,.credit-in,.jf-item,.lead-story,.mg{grid-template-columns:1fr}
+  .split-stick{position:static}
+  .jf-item:nth-child(even) .jf-txt{order:0}
+  .jf-item:nth-child(even) .jf-img{order:0}
+  .sub-stories{grid-template-columns:1fr}
+  .book{order:-1}
+}
+@media(max-width:620px){
+  .sh-hd,.sh-row{grid-template-columns:1fr;gap:6px}
+  .sh-hd{display:none}
+  .sh-a::before{content:"기존 · ";color:#B9BCC1}
+  .sh-b::before{content:"메모리얼 여정 · ";color:var(--gold-ink);font-family:var(--sans);font-size:.8rem}
+  .pk-row,.jn-row{grid-template-columns:1fr;gap:10px}
+  .ss{grid-template-columns:96px 1fr}
+  .ss .plate{width:96px}
+}
+
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="index.html" class="brand" aria-label="메모리얼 여정 홈">
+      <b>MEMORIAL JOURNEY</b><span>메모리얼 여정</span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴"><a href="index.html" aria-current="page">홈</a><a href="index.html#journey">여정</a><a href="packages.html">패키지</a><a href="story.html">이야기</a><a href="index.html#journal">저널</a><a href="index.html#program">프로그램</a></nav>
+    <div class="tools">
+      <div class="fsz" role="group" aria-label="글자 크기 조절">
+        <button type="button" id="fs-down" aria-label="글자 작게">가–</button>
+        <button type="button" id="fs-up" aria-label="글자 크게">가+</button>
+      </div>
+      <a href="#book" class="btn-nav">1:1 상담 예약</a>
+      <button type="button" class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mnav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mnav" id="mnav" aria-label="모바일 메뉴">
+  <nav class="mnav-list"><a href="index.html" aria-current="page">홈<em>Home</em></a><a href="index.html#journey">여정<em>Journey</em></a><a href="packages.html">패키지<em>Packages</em></a><a href="story.html">이야기<em>Stories</em></a><a href="index.html#journal">저널<em>Journal</em></a><a href="index.html#program">프로그램<em>Program</em></a></nav>
+  <div class="mnav-cta"><a href="#book" class="cta cta-g">1:1 프라이빗 상담 예약</a></div>
+  <div class="mnav-foot">
+    <a class="tel" href="tel:025550199">02-555-0199</a>
+    <div class="fsz" role="group" aria-label="글자 크기 조절">
+      <button type="button" id="fs-down-m" aria-label="글자 작게">가–</button>
+      <button type="button" id="fs-up-m" aria-label="글자 크게">가+</button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <p class="slate ld"><i></i>SCENE 01 &mdash; THE FINALE</p>
+    <h1 class="d1 ld">마침표가 아닌,<br><em>가장 빛나는 인생의 피날레</em></h1>
+    <p class="hero-sub ld">어둡고 슬픈 장례식장 대신, 가장 아름다운 시절에 사랑하는 이들과 웃으며 인사 나누세요. 여행과 기록, 예식과 정리까지 &mdash; 당신의 삶을 한 편의 작품으로 완성해 드립니다.</p>
+    <div class="hero-cta ld">
+      <a href="#journey" class="cta cta-g">여정 살펴보기 <span aria-hidden="true">&rarr;</span></a>
+      <a href="#book" class="cta cta-o">1:1 프라이빗 상담</a>
+    </div>
+    <div class="hero-meta ld">
+      <div><b>04</b>여행 · 기록 · 예식 · 정리를 하나로</div>
+      <div><b>100%</b>모든 가격을 먼저 공개합니다</div>
+      <div><b>1:1</b>모든 여정은 단 한 사람을 위해</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="sec" id="brand" style="background:var(--linen)">
+  <div class="wrap split">
+    <div class="split-stick rv">
+      <span class="label" style="display:block;margin-bottom:20px">왜 지금인가</span>
+      <h2 class="d2">우리는 인생의 마지막을<br>‘남에게’ 맡겨왔습니다</h2>
+      <p class="lead" style="margin-top:22px">마지막 순간은 타인에 의해 치러지는 수동적인 슬픔의 의식이 아니라, 스스로 기획하고 사랑하는 이들에게 직접 감사를 전하는 아름다운 유산이 되어야 합니다.</p>
+    </div>
+    <div class="ledger rv" data-d="1">
+      <div class="lg-row">
+        <span class="idx">01</span>
+        <div>
+          <h3 class="d3">주인공이 빠진 예식</h3>
+          <p>장례를 결정하는 사람은 유족이고, 정작 주인공은 말이 없습니다. 어떤 음악을 틀지, 누구를 부를지, 무슨 말을 남길지 — 정작 본인의 뜻은 어디에도 반영되지 않습니다.</p>
+        </div>
+      </div>
+      <div class="lg-row">
+        <span class="idx">02</span>
+        <div>
+          <h3 class="d3">사흘 안에 내려야 하는 결정</h3>
+          <p>슬픔에 잠긴 가족이 사흘 안에 천만 원 단위를 결정합니다. 비교할 시간도, 물어볼 사람도 없는 자리에서 내려진 선택은 오래 마음에 남습니다.</p>
+        </div>
+      </div>
+      <div class="lg-row">
+        <span class="idx">03</span>
+        <div>
+          <h3 class="d3">흔들린 신뢰</h3>
+          <p>불투명한 가격과 불합리한 요구가 반복되며, 장례를 치른 가족의 마음에는 슬픔과 함께 앙금이 남습니다. 이 업계의 가장 큰 문제는 비용이 아니라 신뢰입니다.</p>
+        </div>
+      </div>
+      <div class="lg-row">
+        <span class="idx">04</span>
+        <div>
+          <h3 class="d3">남지 않는 기억</h3>
+          <p>돈은 쓰였지만 남는 것이 없습니다. 소비되고 사라지는 의전만 있을 뿐, 다시 꺼내 볼 목소리도 영상도 기록도 남지 않습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHIFT -->
+<section class="sec">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">Paradigm Shift</span>
+      <h2 class="d2">애도의 공간에서, 축제의 무대로</h2>
+      <p class="lead">수동적인 사후 처리에서 주체적인 생전 기획으로. 이것은 절차의 변화가 아니라 존엄의 회복입니다.</p>
+    </div>
+    <div class="sh rv">
+      <div class="sh-hd"><span></span><span>기존의 마지막</span><span>메모리얼 여정</span></div>
+      <div class="sh-row"><span class="sh-k">Who</span><span class="sh-a">유족이 결정합니다</span><span class="sh-b">당신이 직접 기획합니다</span></div>
+      <div class="sh-row"><span class="sh-k">When</span><span class="sh-a">세상을 떠난 뒤 사흘</span><span class="sh-b">가장 건강하고 아름다운 시절</span></div>
+      <div class="sh-row"><span class="sh-k">Feeling</span><span class="sh-a">슬픔 · 의무 · 체면</span><span class="sh-b">감사 · 화해 · 자기다움</span></div>
+      <div class="sh-row"><span class="sh-k">Remains</span><span class="sh-a">소비되고 사라지는 의전</span><span class="sh-b">영상과 기록이라는 유산</span></div>
+    </div>
+    <div class="sh-note rv"><p>웨딩플래너가 인생의 시작을 기획하듯,<br>우리는 인생의 완성을 기획합니다.</p></div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="sec" id="journey" style="background:var(--linen)">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">The Legacy Loop</span>
+      <h2 class="d2">네 단계로 완성하는 하나의 이야기</h2>
+      <p class="lead">단편적인 서비스의 나열이 아니라, 한 사람의 인생을 하나의 완결된 서사로 엮어냅니다. 순서대로 함께 걷습니다.</p>
+    </div>
+    <div class="jf">
+      <article class="jf-item rv">
+        <div class="jf-txt">
+          <div class="jf-top"><span class="idx">01</span><span class="jf-en">Memorial Road Trip</span></div>
+          <h3>기억의 장소로 떠나는 여정</h3>
+          <p>캠핑카를 타고 고향과 모교, 첫 직장으로 향합니다. 휠체어와 의료 장비를 실을 수 있는 배리어프리 코스로 설계하고, 동행 전문가와 함께 오래 묵은 마음의 매듭을 풉니다. 이 여정의 모든 순간은 사진과 영상으로 기록됩니다.</p>
+          <div class="jf-tags"><span class="tg">국내 모빌리티 투어</span><span class="tg">배리어프리 해외 코스</span><span class="tg">치유 · 화해 동행</span></div>
+        </div>
+        <div class="jf-img plate pa" data-shot="촬영 예정 · 로드 트립"><i aria-hidden="true"></i></div>
+      </article>
+      <article class="jf-item rv">
+        <div class="jf-txt">
+          <div class="jf-top"><span class="idx">02</span><span class="jf-en">Legacy Production</span></div>
+          <h3>당신의 인생을 한 편의 작품으로</h3>
+          <p>전문 인터뷰어가 당신의 인생을 묻습니다. 무엇이 가장 자랑스러웠고 무엇이 가장 아쉬웠는지. 초고화질 영상 자서전과 가족 다큐멘터리, 그리고 손주에게 남기는 영상 편지까지 한 편의 작품으로 만듭니다.</p>
+          <div class="jf-tags"><span class="tg">영상 자서전</span><span class="tg">가족 다큐멘터리</span><span class="tg">회고록 출판 연계</span></div>
+        </div>
+        <div class="jf-img plate pb" data-shot="촬영 예정 · 인터뷰"><i aria-hidden="true"></i></div>
+      </article>
+      <article class="jf-item rv">
+        <div class="jf-txt">
+          <div class="jf-top"><span class="idx">03</span><span class="jf-en">Life Celebration</span></div>
+          <h3>당신이 직접 여는 감사의 자리</h3>
+          <p>당신이 초대하고, 당신이 인사말을 전하는 연회입니다. 호텔 연회장이나 볕 좋은 야외에서 다큐멘터리 상영과 음악, 만찬이 이어집니다. 기독교·천주교·불교 그리고 무종교, 각각의 방식으로 준비합니다.</p>
+          <div class="jf-tags"><span class="tg">호텔 연회장</span><span class="tg">야외 · 갤러리</span><span class="tg">종교별 맞춤 예식</span></div>
+        </div>
+        <div class="jf-img plate pc" data-shot="촬영 예정 · 예식 현장"><i aria-hidden="true"></i></div>
+      </article>
+      <article class="jf-item rv">
+        <div class="jf-txt">
+          <div class="jf-top"><span class="idx">04</span><span class="jf-en">Total Ending Consulting</span></div>
+          <h3>남겨질 이들을 위한 정리</h3>
+          <p>감성만으로는 마지막을 정리할 수 없습니다. 공증 유언장과 사전연명의료의향서, 상속·증여 설계와 신탁까지 제휴 법무법인·세무법인이 실명으로 함께합니다. 절차와 비용을 모두 문서로 남깁니다.</p>
+          <div class="jf-tags"><span class="tg">유언장 공증</span><span class="tg">상속 · 증여 설계</span><span class="tg">맞춤 신탁</span></div>
+        </div>
+        <div class="jf-img plate pd" data-shot="촬영 예정 · 컨설팅"><i aria-hidden="true"></i></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE : ENDING CREDIT -->
+<section class="credit">
+  <div class="wrap credit-in">
+    <div class="rv">
+      <span class="label label--dk" style="display:block;margin-bottom:22px">Signature</span>
+      <h2 class="d2">영화가 끝나면<br>이름들이 올라갑니다</h2>
+      <p class="lead lead--dk">한 편의 영화가 끝나면 함께 만든 사람들의 이름이 천천히 올라갑니다. 당신의 인생에도 그런 이름들이 있습니다. 우리는 그 이름을 하나하나 여쭤보고 마지막 장면에 올려 드립니다. 살아 계실 때, 그분들이 직접 자기 이름을 보실 수 있도록.</p>
+      <span class="credit-mark">ENDING CREDIT</span>
+    </div>
+    <div class="reel" aria-label="엔딩 크레딧 예시"><div class="reel-track" id="reel"></div></div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section class="sec sec-story" id="story">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">이야기</span>
+      <h2 class="d2">설명보다, 그날의 장면</h2>
+      <p class="lead">실제로 여정을 마친 분들의 기록입니다. 사진과 인터뷰는 본인과 가족의 서면 동의를 받아 공개합니다.</p>
+    </div>
+    <article class="lead-story rv">
+      <div class="plate pa" data-shot="촬영 예정 · 예식 하이라이트"><i aria-hidden="true"></i></div>
+      <div>
+        <p class="pull ls-q">딸에게 미안하다는 말을, 살아서 할 수 있었습니다</p>
+        <p class="who"><b>김○○ 님</b> · 78세 · 전 중학교 교사</p>
+        <div class="meta"><span class="tg">기독교</span><span class="tg">호텔 연회장</span><span class="tg">하객 52명</span><span class="tg">시그니처</span></div>
+        <a href="story.html" class="link-u">이야기 전문 보기</a>
+      </div>
+    </article>
+    <div class="sub-stories rv" data-d="1">
+      <article class="ss">
+        <div class="plate pb" data-shot="ROAD"><i aria-hidden="true"></i></div>
+        <div>
+          <p>“고향집 마루에 앉아<br>아버지 이야기를 처음 했습니다.”</p>
+          <p class="who"><b>박○○ 님</b> · 71세 · 제조업 은퇴</p>
+        </div>
+      </article>
+      <article class="ss">
+        <div class="plate pc" data-shot="FAMILY"><i aria-hidden="true"></i></div>
+        <div>
+          <p>“아버지가 웃는 영상이<br>우리 집에 한 편 생겼어요.”</p>
+          <p class="who"><b>이○○ 님</b> · 고인의 장남</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ADVISORS -->
+<section class="sec">
+  <div class="wrap split">
+    <div class="split-stick rv">
+      <span class="label" style="display:block;margin-bottom:20px">함께하는 사람들</span>
+      <h2 class="d2">감성만으로는<br>마지막을 정리할 수 없습니다</h2>
+      <p class="lead" style="margin-top:22px">여정의 절반은 기록이고, 나머지 절반은 법과 세무입니다. 각 분야의 전문가가 실명과 이력을 밝히고 참여합니다.</p>
+      <p style="margin-top:26px"><a href="#book" class="link-u">자문단 전체 보기</a></p>
+    </div>
+    <div class="adv-list rv" data-d="1">
+      <div class="adv"><div class="av">法</div><div><h4>유언 공증 · 신탁 설계</h4><p>제휴 법무법인 담당 변호사</p></div><span class="role">Legal</span></div>
+      <div class="adv"><div class="av">稅</div><div><h4>상속 · 증여 플랜</h4><p>제휴 세무법인 담당 세무사</p></div><span class="role">Tax</span></div>
+      <div class="adv"><div class="av">映</div><div><h4>다큐멘터리 연출</h4><p>영상 자서전 촬영 · 편집 감독</p></div><span class="role">Film</span></div>
+      <div class="adv"><div class="av">禮</div><div><h4>예식 기획 · 연출</h4><p>연회 진행 및 공간 디렉터</p></div><span class="role">Ceremony</span></div>
+      <div class="adv"><div class="av">心</div><div><h4>스피리추얼 케어</h4><p>치유 · 화해 동행 상담 전문가</p></div><span class="role">Care</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="sec sec-pkg" id="package">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label label--dk">패키지</span>
+      <h2 class="d2">가격을 숨기지 않습니다</h2>
+      <p class="lead lead--dk">장례 산업에 대한 불신은 언제나 가격에서 시작됐습니다. 그래서 우리는 포함되는 것과 포함되지 않는 것을 먼저 알려 드립니다.</p>
+    </div>
+    <div class="pkl rv">
+      <div class="pk-row">
+        <div><span class="pk-tier">Entry</span><h3>메모리얼 노트</h3></div>
+        <p class="desc">엔딩노트 작성 워크샵과 사전연명의료의향서 등록 안내, 20분 분량의 인터뷰 영상. 먼저 가볍게 시작해 보고 싶은 분께.</p>
+        <span class="pk-price">300만 원</span>
+      </div>
+      <div class="pk-row">
+        <div><span class="pk-tier">Prestige</span><h3>프레스티지</h3></div>
+        <p class="desc">스튜디오 인터뷰 영상과 유언장 공증, 30명 규모의 레스토랑 대관 예식. 가까운 사람들과 조용히 나누고 싶은 분께.</p>
+        <span class="pk-price">1,500만 원~</span>
+      </div>
+      <div class="pk-row pick">
+        <div><span class="pk-tier">Signature</span><h3>시그니처<span class="pk-flag">가장 많이 선택</span></h3></div>
+        <p class="desc">1박 2일 로드 트립과 로케이션 다큐멘터리, 50명 규모 연회장 예식, 상속·증여 플랜까지. 여정 전체를 온전히 담고 싶은 분께.</p>
+        <span class="pk-price">3,500만 원~</span>
+      </div>
+      <div class="pk-row">
+        <div><span class="pk-tier">Masterpiece</span><h3>마스터피스</h3></div>
+        <p class="desc">해외 여정과 다큐멘터리 팀 동행, 영화 포맷 제작, 100명 이상 그랜드볼룸 예식, 맞춤 신탁과 전담팀 배정.</p>
+        <span class="pk-price">8,000만 원~</span>
+      </div>
+    </div>
+    <div class="pk-foot rv">
+      <p><b>포함되지 않는 항목도 먼저 말씀드립니다.</b> 하객 정원 초과분의 식대, 해외 여정의 항공료, 별도 공연 섭외 비용은 패키지에 포함되지 않습니다. 상담 시 총액 견적서를 서면으로 드리며 그 이후 추가 청구는 없습니다.</p>
+      <a href="packages.html" class="cta cta-g">패키지 자세히 비교하기 <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNAL -->
+<section class="sec" id="journal">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">저널</span>
+      <h2 class="d2">먼저 알고 계시면 좋은 것들</h2>
+      <p class="lead">계약보다 먼저 필요한 건 정보입니다. 유언과 상속, 장례 절차에 대해 알아두면 도움이 되는 이야기를 매주 씁니다.</p>
+    </div>
+    <div class="jn rv">
+      <article class="jn-row">
+        <span class="jn-date">2026 . 08 . 18</span>
+        <div><h3>자필 유언장이 무효가 되는 다섯 가지 경우</h3><p>날짜 한 줄, 도장 하나가 빠져 유언 전체가 효력을 잃습니다. 실제 판례로 확인하는 요건 정리.</p></div>
+        <span class="jn-cat">상속 · 유언</span>
+      </article>
+      <article class="jn-row">
+        <span class="jn-date">2026 . 08 . 11</span>
+        <div><h3>사전연명의료의향서, 어디서 어떻게 등록하나요</h3><p>이미 335만 명이 등록했습니다. 등록 기관을 찾는 것부터 변경과 철회까지 절차를 그대로 따라가 봅니다.</p></div>
+        <span class="jn-cat">웰다잉</span>
+      </article>
+      <article class="jn-row">
+        <span class="jn-date">2026 . 08 . 04</span>
+        <div><h3>무빈소 장례를 선택하는 가족이 늘고 있습니다</h3><p>다섯 해 사이 1%에서 20%로. 비용과 형식이 아니라 무엇을 남길지를 먼저 묻는 흐름을 짚어봅니다.</p></div>
+        <span class="jn-cat">장례 문화</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- MAGNET -->
+<section class="sec magnet" id="program">
+  <div class="wrap mg">
+    <div class="rv">
+      <span class="label" style="display:block;margin-bottom:20px">무료 자료</span>
+      <h2 class="d2">『나의 엔딩노트』를 보내 드립니다</h2>
+      <p class="lead" style="margin-top:20px">무엇부터 정리해야 할지 막막하다면 여기서 시작하세요. 재산과 의료, 남기고 싶은 말까지 스물여덟 개 항목을 직접 채워 넣는 워크북입니다. 이메일 주소만 남겨 주시면 바로 보내 드립니다.</p>
+      <form class="mg-form" id="magnet-form">
+        <label for="mg-email" style="position:absolute;left:-9999px">이메일 주소</label>
+        <input type="email" id="mg-email" placeholder="이메일 주소를 입력해 주세요" required>
+        <button type="submit">무료로 받기</button>
+      </form>
+      <label class="mg-agree"><input type="checkbox" id="mg-agree" required><span>개인정보 수집·이용에 동의합니다. 수집 항목은 이메일 주소이며, 자료 발송 목적으로 1년간 보관 후 파기합니다.</span></label>
+      <p class="sm" style="margin-top:24px">매달 두 차례 웰다잉 세미나도 무료로 열립니다. <a href="#book" class="link-u">일정 보기</a></p>
+    </div>
+    <div class="rv" data-d="1">
+      <div class="book"><em>Workbook</em><strong>나의 엔딩노트</strong><i aria-hidden="true"></i><small>28 QUESTIONS</small></div>
+    </div>
+  </div>
+</section>
+<footer class="ftr" id="book">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <b>MEMORIAL JOURNEY</b><em>메모리얼 여정</em>
+        <a class="ftr-tel" href="tel:025550199">02-555-0199</a>
+        <p style="font-size:.79rem">평일 09:00 – 18:00 · 주말은 예약 상담</p>
+        <div class="ftr-care">마음이 많이 힘드신가요? 언제든 <a href="tel:109">자살예방 상담전화 109</a>로 연락하실 수 있습니다. 24시간 무료로 연결됩니다.</div>
+      </div>
+      <div>
+        <h4>여정</h4>
+        <ul>
+          <li><a href="index.html#journey">메모리얼 로드 트립</a></li>
+          <li><a href="index.html#journey">레거시 프로덕션</a></li>
+          <li><a href="index.html#journey">라이프 셀러브레이션</a></li>
+          <li><a href="index.html#journey">토탈 엔딩 컨설팅</a></li>
+          <li><a href="packages.html">패키지와 가격</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>안내</h4>
+        <ul>
+          <li><a href="story.html">실제 이야기</a></li>
+          <li><a href="index.html#journal">웰다잉 저널</a></li>
+          <li><a href="index.html#program">세미나 신청</a></li>
+          <li><a href="#">파트너 제휴 문의</a></li>
+          <li><a href="#">개인정보처리방침</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <p>주식회사 메모리얼여정 · 대표 ○○○ · 사업자등록번호 000-00-00000 · 통신판매업 신고 제0000-서울○○-0000호</p>
+      <p>&copy; 2026 MEMORIAL JOURNEY</p>
+    </div>
+  </div>
+</footer>
+
+<a class="call" href="tel:025550199" aria-label="전화 상담하기">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+  전화 상담
+</a>
+<script>
+(function(){
+  var hdr=document.getElementById('hdr');
+  var s=function(){hdr.classList.toggle('stuck',window.scrollY>50)};s();
+  window.addEventListener('scroll',s,{passive:true});
+
+  var steps=[17,18,19,20,22],i=2,r=document.documentElement;
+  function ap(){r.style.setProperty('--fs',steps[i]+'px')}
+  function bindFs(a,b){var u=document.getElementById(a),d=document.getElementById(b);
+    if(u)u.addEventListener('click',function(){if(i<steps.length-1){i++;ap()}});
+    if(d)d.addEventListener('click',function(){if(i>0){i--;ap()}})}
+  bindFs('fs-up','fs-down');bindFs('fs-up-m','fs-down-m');
+
+  var bg=document.getElementById('burger'),mn=document.getElementById('mnav');
+  function setMenu(on){if(!bg||!mn)return;
+    mn.classList.toggle('open',on);
+    bg.setAttribute('aria-expanded',on?'true':'false');
+    bg.setAttribute('aria-label',on?'메뉴 닫기':'메뉴 열기');
+    document.body.classList.toggle('menu-open',on)}
+  if(bg)bg.addEventListener('click',function(){setMenu(!mn.classList.contains('open'))});
+  if(mn)mn.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+  window.addEventListener('resize',function(){if(window.innerWidth>820)setMenu(false)});
+
+  var t=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    t.forEach(function(x){io.observe(x)});
+  }else{t.forEach(function(x){x.classList.add('in')})}
+  
+  var names=[['아내','평생의 동행'],['첫째 딸','가장 오래 참아준 사람'],['어머니','내가 배운 모든 것'],
+    ['고향 친구 정호','열일곱의 여름'],['1985년 영업 2팀','함께 버틴 사람들'],['둘째 아들','늦게 알아본 마음'],
+    ['주치의 선생님','손을 잡아준 분'],['손녀 지우','가장 늦게 만난 기쁨'],['옆집 이웃','매일의 안부'],['담임 목사님','기도의 자리']];
+  var reel=document.getElementById('reel');
+  if(reel){var h=names.map(function(n){return '<div class="ri"><span>'+n[1]+'</span><b>'+n[0]+'</b><i></i></div>'}).join('');reel.innerHTML=h+h}
+  var f=document.getElementById('magnet-form');
+  if(f)f.addEventListener('submit',function(e){e.preventDefault();
+    var ok=document.getElementById('mg-agree').checked,b=f.querySelector('button');
+    if(!ok){b.textContent='동의가 필요합니다';setTimeout(function(){b.textContent='무료로 받기'},1800);return}
+    b.textContent='보내 드렸습니다';b.style.background='#7E6231'});
+
+})();
+</script>
+</body>
+</html>
